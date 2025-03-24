@@ -18,5 +18,8 @@ COPY src /app/src
 # Build the project
 RUN ./gradlew clean shadowJar
 
+# Expose the application port
+EXPOSE 9400
+
 # Specify the default command to run on boot
 CMD ["java", "-jar", "/app/build/libs/ucs-lab-module-integration-service-1.0.0.jar"]
