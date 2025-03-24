@@ -93,7 +93,14 @@ Update `application.conf` found in `src/main/resources/` with the correct config
 ### Run/start
 `docker build -t ucs-fetch-monthly-chw-status-service .`
 
-`docker run -d -p 127.0.0.1:9400:9400 ucs-fetch-monthly-chw-status-service`
+`docker run -d --network=ucs-network -p 127.0.0.1:9400:9400 \
+  -e DB_HOST=10.90.0.1 \
+  -e DB_PORT=5432 \
+  -e DB_NAME=opensrp \
+  -e DB_USER=username \
+  -e DB_PASSWORD=password \
+  --name ucs-fetch-monthly-chw-status-service \
+  ucs-fetch-monthly-chw-status-service`
 
 ### Interact With Shell
 
