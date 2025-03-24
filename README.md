@@ -26,7 +26,7 @@ $ cd chw-status-service
 Set up environment variables or modify `application.conf` to match your database settings:
 
 ```
-DB_HOST=170.187.199.69
+DB_HOST=127.0.0.1
 DB_PORT=5432
 DB_NAME=your_database_name
 DB_USER=your_username

@@ -49,11 +49,11 @@ public class UcsChwStatusCheckRegistry extends AbstractBehavior<UcsChwStatusChec
 
     private Behavior<Command> onCheckChwEligibility(CheckChwEligibilityStatus command) {
         List<ChwEligibilityResults> response = new CheckChwEligibilityStatusProcessor().checkEligibility(command.eligibleChwCheckRequest,
-                command.system.settings().config().getString("chw-status-check-service.database.server-name"),
-                command.system.settings().config().getInt("chw-status-check-service.database.port"),
-                command.system.settings().config().getString("chw-status-check-service.database.database-name"),
-                command.system.settings().config().getString("chw-status-check-service.database.username"),
-                command.system.settings().config().getString("chw-status-check-service.database.password")
+                command.system.settings().config().getString("chw-status-check-service.database.DB_HOST"),
+                command.system.settings().config().getInt("chw-status-check-service.database.DB_PORT"),
+                command.system.settings().config().getString("chw-status-check-service.database.DB_NAME"),
+                command.system.settings().config().getString("chw-status-check-service.database.DB_USER"),
+                command.system.settings().config().getString("chw-status-check-service.database.DB_PASSWORD")
         );
         command.replyTo().tell(new ActionPerformed(response));
         return this;
