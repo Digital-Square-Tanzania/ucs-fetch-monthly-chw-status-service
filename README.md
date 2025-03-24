@@ -93,6 +93,12 @@ Update `application.conf` found in `src/main/resources/` with the correct config
 
 ## Run/Start
 
+### Create Docker Network
+
+Before running the docker container, create a docker network using the following command:
+```bash
+docker network create ucs-network
+```
 ### Build the Docker Image
 
 To build the Docker image, run the following command:
@@ -179,4 +185,3 @@ Ilakoze Jumanne
 
 ## Contact
 For support, please contact **ilakozejumanne@gmail.com**.
-
