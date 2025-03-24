@@ -77,31 +77,31 @@ POST /chw/monthly-status
 To build and run the service after performing the above configurations, run the following:
 ```sh
   ./gradlew clean shadowJar
-  java -jar build/libs/ucs-lab-module-integration-service-<version>.jar
+  java -jar build/libs/ucs-fetch-monthly-chw-status-service-<version>.jar
 ```
 
 ## Deployment via Docker
 
 First Install docker in your PC by following [this guide](https://docs.docker.com/engine/install/). Secondly, clone this repo to your computer by using git clone and the repo's address:
 
-`git clone https://github.com/Digital-Square-Tanzania/ucs-lab-module-integration-service.git`
+`git clone https://github.com/Digital-Square-Tanzania/ucs-fetch-monthly-chw-status-service.git`
 
-Once you have completed cloning the repo, go inside the repo in your computer: `cd ucs-lab-module-integration-service`
+Once you have completed cloning the repo, go inside the repo in your computer: `cd ucs-fetch-monthly-chw-status-service`
 
 Update `application.conf` found in `src/main/resources/` with the correct configs and use the following Docker commands for various uses:
 
 ### Run/start
-`docker build -t ucs-lab-module-integration-service .`
+`docker build -t ucs-fetch-monthly-chw-status-service .`
 
-`docker run -d -p 127.0.0.1:9400:9400 ucs-lab-module-integration-service`
+`docker run -d -p 127.0.0.1:9400:9400 ucs-fetch-monthly-chw-status-service`
 
 ### Interact With Shell
 
-`docker exec -it ucs-lab-module-integration-service sh`
+`docker exec -it ucs-fetch-monthly-chw-status-service sh`
 
 ### Stop Services
 
-`docker stop ucs-lab-module-integration-service`
+`docker stop ucs-fetch-monthly-chw-status-service`
 
 ## Database Setup
 Ensure your PostgreSQL database has the necessary tables:

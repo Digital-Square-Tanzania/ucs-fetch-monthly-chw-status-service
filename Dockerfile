@@ -22,4 +22,4 @@ RUN ./gradlew clean shadowJar
 EXPOSE 9400
 
 # Specify the default command to run on boot
-CMD ["java", "-jar", "/app/build/libs/ucs-lab-module-integration-service-1.0.0.jar"]
+CMD ["java", "-jar", "/app/build/libs/ucs-fetch-monthly-chw-status-service-1.0.0.jar"]
