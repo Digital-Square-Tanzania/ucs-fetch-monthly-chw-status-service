@@ -90,17 +90,48 @@ Once you have completed cloning the repo, go inside the repo in your computer: `
 
 Update `application.conf` found in `src/main/resources/` with the correct configs and use the following Docker commands for various uses:
 
-### Run/start
-`docker build -t ucs-fetch-monthly-chw-status-service .`
 
-`docker run -d --network=ucs-network -p 127.0.0.1:9400:9400 \
+## Run/Start
+
+### Build the Docker Image
+
+To build the Docker image, run the following command:
+
+```bash
+docker build -t ucs-fetch-monthly-chw-status-service .
+```
+
+### Run the Docker Container
+
+To run the Docker container with environment variables and automatic restart on system reboot, use the following command:
+
+```bash
+docker run -d --network=ucs-network -p 127.0.0.1:9400:9400 \
   -e DB_HOST=10.90.0.1 \
   -e DB_PORT=5432 \
   -e DB_NAME=opensrp \
   -e DB_USER=username \
   -e DB_PASSWORD=password \
   --name ucs-fetch-monthly-chw-status-service \
-  ucs-fetch-monthly-chw-status-service`
+  --restart unless-stopped \
+  ucs-fetch-monthly-chw-status-service
+```
+
+### Explanation of Options:
+
+- **`-d`**: Runs the container in detached mode (in the background).
+- **`--network=ucs-network`**: Specifies the Docker network for the container.
+- **`-p 127.0.0.1:9400:9400`**: Maps port 9400 on the host to port 9400 on the container.
+- **Environment Variables**:
+    - **`DB_HOST`**: The database host IP (e.g., `10.90.0.1`).
+    - **`DB_PORT`**: The port on which the database is running (default is `5432`).
+    - **`DB_NAME`**: The name of the database (e.g., `opensrp`).
+    - **`DB_USER`**: The database user name (e.g., `username`).
+    - **`DB_PASSWORD`**: The database user password (e.g., `password`).
+- **`--name`**: Names the container as `ucs-fetch-monthly-chw-status-service`.
+- **`--restart unless-stopped`**: Ensures the container restarts automatically unless explicitly stopped by the user.
+
+---
 
 ### Interact With Shell
 
